@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .txt-title {
+        @apply text-5xl text-base-blue;
+    }
+    .txt-subtitle {
+        @apply text-lg;
+    }
+    .txt-base {
+        @apply font-thin;
+    }
+
+    .image {
+        @apply w-full h-full object-cover object-center aspect-video;
+    }
+
+    .button {
+        @apply bg-white text-zinc-950 duration-300 hover:bg-zinc-200;
+    }
+}
+
+[x-cloak] {
+    display: none;
+}
