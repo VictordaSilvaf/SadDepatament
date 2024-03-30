@@ -31,12 +31,13 @@ class UserSeeder extends Seeder
             'dashboard',
             'smtp',
             'settings',
+            'dashboard',
         ]);
 
         $moderator = User::factory()->create([
             'name' => 'Victor Sad',
-            'email' => 'victorsad@email.com',
-            'password' => Hash::make('VictorSad123*'),
+            'email' => 'victorsaddesouza@gmail.com',
+            'password' => Hash::make('Ms020800@'),
             'active' => 1,
         ]);
 
@@ -49,6 +50,7 @@ class UserSeeder extends Seeder
             'dashboard',
             'smtp',
             'settings',
+            'dashboard',
         ]);
 
         User::factory()->create([
