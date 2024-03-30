@@ -27,12 +27,14 @@
     </div>
     <div class="invisible md:visible w-screen absolute right-0 top-0 h-full flex justify-end -z-10">
         <div class="w-full md:w-1/2 h-full pl-16 relative flex items-center">
-            <div class="absolute h-[350px] rounded-l-full w-full bg-base-blue flex justify-end items-center"></div>
+            <div class="absolute h-[350px] right-0 rounded-l-full w-5/6 bg-base-blue flex justify-end items-center"></div>
             <div class="mx-auto w-[400px] relative h-full bg-base-red">
                 <div class="absolute w-full h-full bg-base-red">
                 </div>
                 <div class="absolute w-full h-full pr-4 py-4 -ml-2">
-                    <div class="h-full w-full bg-zinc-300"></div>
+                    <div class="h-full w-full bg-zinc-300">
+                        <img class="w-full h-full object-cover object-center" src="{{ asset('assets/images/no-image.jpg') }}" alt="">
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,4 +1,4 @@
-<div class="container mx-auto mb-20 md:my-20">
+<div class="container mx-auto mb-20 md:my-20 w-full">
     <div class="flex items-center flex-col">
         <div class="w-2/3 text-center">
             <h2 class="txt-title">Lorem ipsum dolor sit amet</h2>
