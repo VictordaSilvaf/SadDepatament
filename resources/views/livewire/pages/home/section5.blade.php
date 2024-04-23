@@ -1,7 +1,7 @@
 <div class="mx-auto my-6 md:my-20 py-6 md:py-16">
     <div class="flex items-center flex-col container mx-auto">
         <div class="w-2/3 text-center">
-            <h2 class="txt-title">Our <span class="text-base-red">Partners</span></h2>
+            <h2 class="txt-title">{{ $title }}</h2>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 w-full mt-8 px-12 gap-y-6 md:gap-x-8">

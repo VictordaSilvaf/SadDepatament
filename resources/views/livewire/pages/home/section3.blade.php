@@ -1,22 +1,19 @@
 <div class="container mx-auto my-20">
     <div class="flex items-center flex-col">
         <div class="w-2/3 text-center">
-            <h2 class="txt-title">Our <span class="text-base-red">Partners</span></h2>
+            <h2 class="txt-title">{{ $title ?? '' }}</h2>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-4 w-full mt-8 px-6 md:px-12 gap-2 sm:gap-x-8">
-            <div class="text-center">
-                <img class="image" src="{{ asset('assets/images/no-image.jpg') }}" alt="">
+        @if(isset($images))
+            <div class="grid grid-cols-1 md:grid-cols-{{count($images)}} w-full mt-8 px-6 md:px-12 gap-2 sm:gap-x-8">
+                @foreach($images as $item)
+                    <div class="text-center">
+                        <img class="image"
+                             src="{{ $item ? asset('storage/'.$item) : asset('assets/images/no-image.jpg') }}"
+                             alt="">
+                    </div>
+                @endforeach
             </div>
-            <div class="text-center">
-                <img class="image" src="{{ asset('assets/images/no-image.jpg') }}" alt="">
-            </div>
-            <div class="text-center">
-                <img class="image" src="{{ asset('assets/images/no-image.jpg') }}" alt="">
-            </div>
-            <div class="text-center">
-                <img class="image" src="{{ asset('assets/images/no-image.jpg') }}" alt="">
-            </div>
-        </div>
+        @endif
     </div>
 </div>

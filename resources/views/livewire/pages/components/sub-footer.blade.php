@@ -1,5 +1,5 @@
 
-<div class="container flex justify-between items-center mx-auto bg-base-blue rounded-xl py-3 px-5 sm:px-10 text-white translate-y-1/2">
+<div class="container flex justify-between items-center mx-auto bg-base-blue rounded-xl py-3 px-5 sm:px-10 text-white translate-y-1/2 gap-x-6">
     <div class="">
         <h2 class="txt-subtitle text-2xl">Need more information?</h2>
         <p class="txt-base text-md mt-2">Write your concern to us and our specialist will get back to you.</p>

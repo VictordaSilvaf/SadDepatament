@@ -1,11 +1,13 @@
 <div class="relative w-full flex container py-2 mx-auto justify-between text-black items-center px-6 md:px-0">
-    <a href="{{ route('home') }}" class="">Logo</a>
+    <a href="{{ route('web.home') }}" class="">
+        {{ $logo ? asset('storage/'.$logo) : '' }}
+    </a>
 
     <div class="space-x-12 hidden md:flex">
-        <x-components.nav-button :route="route('home')" text="Home" :isActive="request()->routeIs('home')"/>
-        <x-components.nav-button :route="route('servicos')" text="Serviços" :isActive="request()->routeIs('servicos')"/>
-        <x-components.nav-button :route="route('blog')" text="Blog" :isActive="request()->routeIs('blog')"/>
-        <x-components.nav-button :route="route('contato')" text="Contato" :isActive="request()->routeIs('contato')"/>
+        <x-components.nav-button :route="route('web.home')" text="Home" :isActive="request()->routeIs('home')"/>
+{{--        <x-components.nav-button :route="route('web.servicos')" text="Serviços" :isActive="request()->routeIs('servicos')"/>--}}
+        <x-components.nav-button :route="route('web.blogs')" text="Blog" :isActive="request()->routeIs('blog')"/>
+        <x-components.nav-button route="{{ route('web.home') }}#contact" text="Contato" :isActive="request()->routeIs('contato')"/>
     </div>
 
     <div class="flex md:hidden" x-data="{ showMenu: false }" x-cloak>
@@ -27,16 +29,16 @@
 
         <div x-show="showMenu" @click.outside="showMenu = false"
              class="absolute top-12 right-0 z-30 flex flex-col shadow-lg text-center">
-            <a href="{{ route('home') }}" @click="showMenu = false" class="px-10 py-2 text-zinc-950 bg-zinc-50 duration-300 hover:bg-zinc-100">
+            <a href="{{ route('web.home') }}" @click="showMenu = false" class="px-10 py-2 text-zinc-950 bg-zinc-50 duration-300 hover:bg-zinc-100">
                 Home
             </a>
-            <a href="{{ route('servicos') }}" @click="showMenu = false" class="px-10 py-2 text-zinc-950 bg-zinc-50 duration-300 hover:bg-zinc-100">
-                Servicos
-            </a>
-            <a href="{{ route('blog') }}" @click="showMenu = false" class="px-10 py-2 text-zinc-950 bg-zinc-50 duration-300 hover:bg-zinc-100">
+{{--            <a href="{{ route('web.servicos') }}" @click="showMenu = false" class="px-10 py-2 text-zinc-950 bg-zinc-50 duration-300 hover:bg-zinc-100">--}}
+{{--                Servicos--}}
+{{--            </a>--}}
+            <a href="{{ route('web.blogs') }}" @click="showMenu = false" class="px-10 py-2 text-zinc-950 bg-zinc-50 duration-300 hover:bg-zinc-100">
                 Blog
             </a>
-            <a href="{{ route('contato') }}" @click="showMenu = false" class="px-10 py-2 text-zinc-950 bg-zinc-50 duration-300 hover:bg-zinc-100">
+            <a href="{{ route('web.home') }}#contact" @click="showMenu = false" class="px-10 py-2 text-zinc-950 bg-zinc-50 duration-300 hover:bg-zinc-100">
                 Contato
             </a>
         </div>

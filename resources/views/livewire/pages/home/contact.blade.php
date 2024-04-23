@@ -1,4 +1,4 @@
-<div class="py-6 relative min-h-[600px] flex items-center px-4">
+<div class="py-6 relative min-h-[600px] flex items-center px-4" id="contact">
     <div class="container mx-auto h-full">
         <div class="w-full px-3 md:px-0 md:w-1/2 h-full">
             <h3 class="text-3xl">Entre em <span class="text-base-red">contato</span> agora mesmo</h3>
@@ -33,7 +33,7 @@
                 </div>
                 <div class="absolute w-full h-full pr-4 py-4 -ml-2">
                     <div class="h-full w-full bg-zinc-300">
-                        <img class="w-full h-full object-cover object-center" src="{{ asset('assets/images/no-image.jpg') }}" alt="">
+                        <img class="w-full h-full object-cover object-center" src="{{ $image ? asset('storage/'.$image) : asset('assets/images/no-image.jpg') }}" alt="">
                     </div>
                 </div>
             </div>

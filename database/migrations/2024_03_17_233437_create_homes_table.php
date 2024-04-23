@@ -13,36 +13,34 @@ return new class extends Migration
     {
         Schema::create('homes', function (Blueprint $table) {
             $table->id();
-            $table->string('title_1');
-            $table->string('description_1');
-            $table->string('image_1');
+            $table->string('title_1')->nullable();
+            $table->text('description_1')->nullable();
+            $table->string('image_1')->nullable();
 
-            $table->string('title_2');
-            $table->string('description_2');
-            $table->string('image_2');
-            $table->json('items_2');
+            $table->string('title_2')->nullable();
+            $table->text('description_2')->nullable();
+            $table->string('image_2')->nullable();
+            $table->json('items_2')->nullable();
 
-            $table->string('title_3');
-            $table->string('description_3');
-            $table->string('image_3');
-            $table->json('items_3');
+            $table->string('title_3')->nullable();
+            $table->text('description_3')->nullable();
+            $table->string('image_3')->nullable();
+            $table->json('items_3')->nullable();
 
-            $table->string('title_4');
-            $table->string('description_4');
-            $table->string('image_4');
+            $table->string('title_4')->nullable();
+            $table->json('images_4')->nullable();
 
-            $table->string('title_5');
-            $table->json('items_5');
+            $table->string('title_5')->nullable();
 
-            $table->string('title_6');
+            $table->string('title_6')->nullable();
 
-            $table->string('title_7');
+            $table->string('title_7')->nullable();
+            $table->string('image_7')->nullable();
+            $table->json('items_7')->nullable();
 
-            $table->string('title_8');
-            $table->string('image_8');
-            $table->json('items_8');
+            $table->string('title_8')->nullable();
 
-            $table->string('title_9');
+            $table->string('image_9')->nullable();
 
             $table->timestamps();
         });

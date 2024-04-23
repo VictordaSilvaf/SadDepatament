@@ -7,11 +7,9 @@ use App\Http\Controllers\admin\SmtpController;
 use App\Http\Controllers\admin\TagController;
 use App\Http\Controllers\admin\UserControllers;
 use App\Http\Controllers\HomeController;
+use App\Livewire\Pages\Blog\Blog;
+use App\Livewire\Pages\BlogItem\BlogItem;
 use Illuminate\Support\Facades\Route;
-
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Route::middleware([
     'auth:sanctum',
@@ -37,7 +35,8 @@ Route::middleware([
         ->middleware('can:edit home')->names('dashboard.home');
 });
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/servicos', [HomeController::class, 'index'])->name('servicos');
-Route::get('/blog', [HomeController::class, 'index'])->name('blog');
-Route::get('/contato', [HomeController::class, 'index'])->name('contato');
+Route::get('/', [HomeController::class, 'index'])->name('web.home');
+//Route::get('/servicos', [HomeController::class, 'index'])->name('web.servicos');
+Route::get('/blogs', Blog::class)->name('web.blogs');
+Route::get('/blogs/{slug}', BlogItem::class)->name('web.blogs.show');
+Route::get('/contato', [HomeController::class, 'index'])->name('web.contato');

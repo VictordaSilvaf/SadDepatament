@@ -19,32 +19,25 @@ class BlogFactory extends Factory
      */
     public function definition(): array
     {
-        $title = $this->faker->sentence;
-        $subtitle = $this->faker->sentence;
-        $description = $this->faker->paragraph;
-        $slug = $this->faker->slug;
-
-        // Crie o blog
-        $blog = Blog::create([
-            'title' => $title,
-            'subtitle' => $subtitle,
-            'description' => $description,
-            'slug' => $slug,
-        ]);
-
-        // Adicione categorias aleatórias ao blog
-        $categories = Category::inRandomOrder()->take(rand(1, 3))->get(); // Adiciona de 1 a 3 categorias aleatórias
-        $blog->categories()->attach($categories);
-
-        // Adicione tags aleatórias ao blog
-        $tags = Tag::inRandomOrder()->take(rand(1, 5))->get(); // Adiciona de 1 a 5 tags aleatórias
-        $blog->tags()->attach($tags);
-
         return [
-            'title' => $title,
-            'subtitle' => $subtitle,
-            'description' => $description,
-            'slug' => $slug,
+            'show_title' => $this->faker->sentence,
+            'show_description' => $this->faker->paragraph,
+            'image' => $this->faker->imageUrl,
+            'title_1' => $this->faker->sentence,
+            'description_1' => $this->faker->paragraph,
+            'title_2' => $this->faker->sentence,
+            'subtitle_2' => $this->faker->sentence,
+            'image_2' => $this->faker->imageUrl,
+            'description_2' => $this->faker->paragraph,
+            'image_3' => $this->faker->imageUrl,
+            'description_3' => $this->faker->paragraph,
+            'title_4' => $this->faker->sentence,
+            'image_4' => $this->faker->imageUrl,
+            'description_4' => $this->faker->paragraph,
+            'slug' => $this->faker->slug,
+            'sort' => $this->faker->randomNumber(2),
+            'created_at' => $this->faker->dateTime(),
+            'updated_at' => $this->faker->dateTime(),
         ];
     }
 }
