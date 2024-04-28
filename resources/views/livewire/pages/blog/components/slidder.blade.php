@@ -1,12 +1,24 @@
 <section>
-    <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-    />
     <style>
         .swiper {
             width: 100%;
             height: 100%;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
     </style>
 
@@ -18,57 +30,41 @@
 
     <div class="w-full bg-[#EAEAEA]">
         <div class="container mx-auto bg-[#D9D9D9] h-[70vh]">
-            <!-- Slider main container -->
-            <div class="swiper">
-                <!-- Additional required wrapper -->
+            <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
-                    <!-- Slides -->
-                    <div class="swiper-slide">Slide 1</div>
-                    <div class="swiper-slide">Slide 2</div>
-                    <div class="swiper-slide">Slide 3</div>
-                    ...
+                    @foreach($lastBlogs as $blog)
+                        <a href="{{ route('web.blogs.show', $blog->slug) }}" class="swiper-slide relative group">
+                            <img class="w-full h-full object-center object-cover" src="{{ asset($blog->image) }}" alt="">
+                            <div class="absolute w-full bottom-0 h-1/2 flex items-end bg-gradient-to-t from-neutral-950">
+                                <div class="p-8 px-6 sm:px-20">
+                                    <h4 class="text-left text-2xl text-base-red">{{$blog->show_title}}</h4>
+                                    <p class="text-left mt-6 text-white">{{$blog->show_description}}</p>
+                                </div>
+                            </div>
+                        </a>
+                    @endforeach
                 </div>
-                <!-- If we need pagination -->
                 <div class="swiper-pagination"></div>
 
-                <!-- If we need navigation buttons -->
                 <div class="swiper-button-prev"></div>
                 <div class="swiper-button-next"></div>
-
-                <!-- If we need scrollbar -->
-                <div class="swiper-scrollbar"></div>
             </div>
         </div>
     </div>
 </section>
-@script
+
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
-    // import Swiper JS
-    import Swiper from 'swiper';
-    // import Swiper styles
-    import 'swiper/css';
-
-    const swiper = new Swiper('.swiper', {
-        // Optional parameters
-        direction: 'vertical',
+    const swiper = new Swiper('.mySwiper', {
         loop: true,
-
-        // If we need pagination
         pagination: {
             el: '.swiper-pagination',
+            dynamicBullets: true,
         },
 
-        // Navigation arrows
         navigation: {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
         },
-
-        // And if we need scrollbar
-        scrollbar: {
-            el: '.swiper-scrollbar',
-        },
     });
 </script>
-@endscript

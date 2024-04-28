@@ -16,7 +16,7 @@
             <a href="{{ route('web.home') }}" class="hover:text-red-600 duration-300 {{ request()->routeIs('web.home') ? 'text-red-600' : '' }}">Home</a>
 {{--            <a href="{{ route('web.servicos') }}" class="hover:text-red-600 duration-300  {{ request()->routeIs('web.servicos') ? 'text-red-600' : '' }}">Serviços</a>--}}
             <a href="{{ route('web.blogs') }}" class="hover:text-red-600 duration-300  {{ request()->routeIs('web.blogs') ? 'text-red-600' : '' }}">Blogs</a>
-            <a href="#contato" class="hover:text-red-600 duration-300">Contato</a>
+            <a href="{{ route('web.home') }}#contact" class="hover:text-red-600 duration-300">Contato</a>
         </div>
         <div class="flex-col flex">
             @isset($blogs)

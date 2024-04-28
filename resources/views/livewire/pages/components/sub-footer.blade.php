@@ -5,6 +5,6 @@
         <p class="txt-base text-md mt-2">Write your concern to us and our specialist will get back to you.</p>
     </div>
     <div class="">
-        <a href="#" class="px-4 py-2 sm:px-8 sm:py-4 duration-300 text-sm md:text-lg font-semibold bg-base-red hover:bg-opacity-70 text-white whitespace-nowrap">Ver mais</a>
+        <a href="{{ route('web.home') }}#contact" class="px-4 py-2 sm:px-8 sm:py-4 duration-300 text-sm md:text-lg font-semibold bg-base-red hover:bg-opacity-70 text-white whitespace-nowrap">Ver mais</a>
     </div>
 </div>
