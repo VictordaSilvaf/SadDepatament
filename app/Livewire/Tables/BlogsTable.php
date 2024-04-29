@@ -5,6 +5,7 @@ namespace App\Livewire\Tables;
 use App\Models\admin\Blog;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
+use Rappasoft\LaravelLivewireTables\Views\Columns\ImageColumn;
 
 class BlogsTable extends DataTableComponent
 {
@@ -50,7 +51,8 @@ class BlogsTable extends DataTableComponent
         return [
             Column::make('Id', 'id')
                 ->sortable(),
-            Column::make(__('Title'), 'title')
+//            ImageColumn::make('Imagens', 'image'),
+            Column::make(__('Title'), 'title_1')
                 ->searchable()
                 ->sortable(),
             Column::make(__('Created at'), 'created_at')

@@ -3,7 +3,7 @@
         <div class="w-[65%]">
             <h1 class="txt-title">{{$title}}</h1>
             <p class="txt-base mt-4">
-                {{$text}}
+                {!! $text !!}
             </p>
         </div>
     </div>

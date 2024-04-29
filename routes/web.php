@@ -32,7 +32,7 @@ Route::middleware([
     Route::resource('/tags', TagController::class)
         ->middleware('can:create tags')->names('tags');
     Route::resource('/pages/home', \App\Http\Controllers\admin\HomeController::class)
-        ->middleware('can:edit home')->names('dashboard.home');
+        ->middleware('can:edit homes')->names('dashboard.home');
 });
 
 Route::get('/', [HomeController::class, 'index'])->name('web.home');

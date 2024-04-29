@@ -1,5 +1,5 @@
 <div class="flex items-center justify-center w-full">
-    <label for="dropzone-file"
+    <label for="{{ $name }}_dropzone-file"
            class="flex flex-col items-center justify-center w-full h-64 border-2 border-zinc-300 border-dashed rounded-lg cursor-pointer bg-zinc-50 dark:hover:bg-bray-800 dark:bg-zinc-700 hover:bg-zinc-100 dark:border-zinc-600 dark:hover:border-zinc-500 dark:hover:bg-zinc-600">
         <div class="flex flex-col items-center justify-center">
 
@@ -10,7 +10,7 @@
             @else
                 @if($image)
                     <div class="w-auto  object-cover bg-red-700 h-64">
-                        <img class="h-full w-auto" src="{{ asset($image) }}" alt="imagem selecionada">
+                        <img class="h-full w-auto" src="{{ asset('storage/'.$image) }}" alt="imagem selecionada">
                     </div>
                 @else
                     <svg class="w-8 h-8 mb-4 text-zinc-500 dark:text-zinc-400" aria-hidden="true"
@@ -25,8 +25,8 @@
             @endisset
         </div>
         <input wire:model="photo"
-               name="image"
-               id="dropzone-file"
+               name="{{ $name }}"
+               id="{{ $name }}_dropzone-file"
                type="file"
                value="{{ $photo ? $photo->temporaryUrl() : '' }}"
                class="hidden"/>

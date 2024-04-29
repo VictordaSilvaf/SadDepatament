@@ -2,7 +2,7 @@
     <div class="flex items-center flex-col">
         <div class="w-2/3 text-center">
             <h2 class="txt-title">{{ $title ?? '' }}</h2>
-            <p class="txt-subtitle mt-4">{{ $text ?? '' }}</p>
+            <p class="txt-subtitle mt-4">{!! $text ?? '' !!}</p>
         </div>
 
         <div class="sm:grid sm:grid-cols-2 flex-grow w-full h-full mt-12">

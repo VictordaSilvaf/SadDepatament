@@ -30,6 +30,7 @@ class UserSeeder extends Seeder
             'users',
             'dashboard',
             'smtp',
+            'homes',
             'settings',
             'dashboard',
         ]);
@@ -48,6 +49,7 @@ class UserSeeder extends Seeder
             'tags',
             'categories',
             'dashboard',
+            'homes',
             'smtp',
             'settings',
             'dashboard',

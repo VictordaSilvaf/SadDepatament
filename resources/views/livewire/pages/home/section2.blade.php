@@ -2,7 +2,7 @@
     <div class="flex items-center flex-col">
         <div class="w-2/3 text-center">
             <h2 class="txt-title">{{ $title ?? '' }}</h2>
-            <p class="txt-subtitle mt-8">{{ $text ?? '' }}</p>
+            <p class="txt-subtitle mt-8">{!! $text ?? '' !!}</p>
         </div>
 
         @if(isset($items))

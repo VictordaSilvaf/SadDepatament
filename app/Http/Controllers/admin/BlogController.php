@@ -6,9 +6,13 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreBlogRequest;
 use App\Http\Requests\UpdateBlogRequest;
 use App\Models\admin\Blog;
+use App\Traits\Images;
+use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
+    use Images;
+
     /**
      * Display a listing of the resource.
      */
@@ -30,16 +34,71 @@ class BlogController extends Controller
      */
     public function store(StoreBlogRequest $request)
     {
-        // Criação do novo post no banco de dados
-        $post = Blog::create([
-            'title' => $request->title,
-            'subtitle' => $request->subtitle,
-            'description' => $request->description,
+        $request->validate([
+            'show_title' => 'string|nullable',
+            'show_description' => 'string|nullable',
+            'image' => 'image|nullable',
+            'title_1' => 'string|nullable',
+            'description_1' => 'string|nullable',
+            'title_2' => 'string|nullable',
+            'subtitle_2' => 'string|nullable',
+            'image_2' => 'image|nullable',
+            'description_2' => 'string|nullable',
+            'image_3' => 'image|nullable',
+            'description_3' => 'string|nullable',
+            'title_4' => 'string|nullable',
+            'image_4' => 'image|nullable',
+            'description_4' => 'string|nullable',
         ]);
+        // Criação do novo post no banco de dados
 
         // Se necessário, redirecionamento para uma página específica
-        return redirect()->route('blogs.index', $post->id)->banner('Criado com sucesso.');
+        if ($blog = Blog::create($request->except('image', 'image_2', 'image_3', 'image_4'))) {
+            $this->update_images($request, $blog);
+
+            return redirect()->route('blogs.index', $blog->id)->banner('Criado com sucesso.');
+        } else {
+            return redirect()->back()->dangerBanner('Ocorreu algum erro inesperado');
+        }
     }
+
+    private function update_images(Request $request, $model = null): void
+    {
+        if ($request->hasFile('image')) {
+            $image = $this->resizeImage($request->image);
+            $image = $this->saveImage($image, '/blog', '');
+            if (isset($image)) {
+                $model->update(['image' => $image]);
+            }
+        }
+
+        if ($request->hasFile('image_2')) {
+            $images = [];
+            foreach ($request->file('image_2') as $image) {
+                // Redimensionar e salvar a imagem
+                $resizedImage = $this->resizeImage($image);
+                $images[] = $this->saveImage($resizedImage, '/blog', '');
+            }
+            $model->update(['image_2' => $images]);
+        }
+
+        if ($request->hasFile('image_3')) {
+            $image = $this->resizeImage($request->image_3);
+            $image = $this->saveImage($image, '/blog', '');
+            if (isset($image)) {
+                $model->update(['image_3' => $image]);
+            }
+        }
+
+        if ($request->hasFile('image_4')) {
+            $image = $this->resizeImage($request->image_4);
+            $image = $this->saveImage($image, '/blog', '');
+            if (isset($image)) {
+                $model->update(['image_4' => $image]);
+            }
+        }
+    }
+
 
     /**
      * Display the specified resource.
@@ -62,16 +121,31 @@ class BlogController extends Controller
      */
     public function update(UpdateBlogRequest $request, Blog $blog)
     {
-        // Atualização do post no banco de dados
-        $blog->update([
-            'title' => $request['title'],
-            'subtitle' => $request['subtitle'],
-            'description' => $request['description'],
+        $request->validate([
+            'show_title' => 'string|nullable',
+            'show_description' => 'string|nullable',
+            'image' => 'image|nullable',
+            'title_1' => 'string|nullable',
+            'description_1' => 'string|nullable',
+            'title_2' => 'string|nullable',
+            'subtitle_2' => 'string|nullable',
+            'image_2' => 'image|nullable',
+            'description_2' => 'string|nullable',
+            'image_3' => 'image|nullable',
+            'description_3' => 'string|nullable',
+            'title_4' => 'string|nullable',
+            'image_4' => 'image|nullable',
+            'description_4' => 'string|nullable',
         ]);
-
+        // Criação do novo post no banco de dados
         // Se necessário, redirecionamento para uma página específica
-        return redirect()->route('blogs.index')
-            ->banner('Atualizado com sucesso.');
+        if ($blog->update($request->except('image', 'image_2', 'image_3', 'image_4'))) {
+            $this->update_images($request, $blog);
+
+            return redirect()->route('blogs.index', $blog->id)->banner('Editado com sucesso.');
+        } else {
+            return redirect()->back()->dangerBanner('Ocorreu algum erro inesperado');
+        }
     }
 
     /**

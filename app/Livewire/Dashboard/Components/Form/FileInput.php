@@ -14,6 +14,7 @@ class FileInput extends Component
     public $photo;
 
     public $image;
+    public string $name;
 
     public function render(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View|\Illuminate\Contracts\Foundation\Application
     {
